@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Interactive Networks</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="js/papaparse.min.js"></script>
+  <script src="js/three.min.js"></script>
+  <script src="js/VTKLoader.js"></script>
+  <script src="js/OrbitControls.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h1>Interactive Networks</h1>
+  <h4>3D representations of the results in <i>Measurement of Dynamic Functional Networks using MEG</i> (O'Neill <i> et al.</i>)</h4> 
+  <p><i>Select a network from the dropdown menu, click and drag to rotate, scroll to zoom. If the brain doesn't load try refreshing.</i></p>
+<!--   <div class="dropdown">
+	<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Network
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li class="dropdown-header">Self Paced</li>
+    <li><a href="#">Motor</a></li>
+    <li class="dropdown-header">Sternberg</li>
+    <li><option value="01"><b>I</b> Primary Visual</a></li>
+    <li><a href="#"><b>II</b> Visual to R Temp. Par.</a></li>
+    <li><a href="#"><b>III</b> Visual to L Temp. Par.</a></li>
+    <li><a href="#"><b>IV</b> Visuomotor</a></li>
+    <li><a href="#"><b>V</b> Somantic</a></li>
+    <li><a href="#"><b>VI</b> Language</a></li>
+    <li><a href="#"><b>VII</b> Refined Visual to L Temp. Par.</a></li>
+    <li><a href="#"><b>VIII</b> Refined Visuomotor</a></li>
+    <li><a href="#"><b>IX</b> Sensorimotor</a></li>
+  </ul>
+</div>-->
+
+
+
+<select class="form-control" id="sel1" onchange="refresh()">
+    <option value="00" selected>Self Paced: Motor</option>
+    <option value="01">Sternberg I: Primary Visual</option>
+    <option value="02">Sternberg II: Visual to Right Temporal Parietal</option>
+    <option value="03">Sternberg III: Visual to Left Temporal Parietal</option>
+	<option value="04">Sternberg IV: Visuomotor</option>
+    <option value="05">Sternberg V: Somantic</option>
+    <option value="06">Sternberg VI: Language</option>
+    <option value="07">Sternberg VII: Refined Visual to Left Temporal Parietal</option>
+    <option value="08">Sternberg VIII: Refined Visuomotor</option>
+    <option value="09">Sternberg IX: Sensorimotor</option>
+</select>
+ &nbsp
+ <div id="canvas" style="padding: 0; margin: auto; display: block; width: 800px;">
+ 	<script src="js/brain.js"></script>
+ </div>
+
+<script>
+</script>
+    
+</div>
+
+</body>
+</html>
