@@ -63,7 +63,7 @@ controls.addEventListener( 'change', render );
           parseData(data,pause);
         });
 
-  //   controls.update();
+    controls.update();
 }
 
 function animate(results) {
@@ -170,8 +170,8 @@ function draw_all() {
             if (Math.abs(conns[i][j]) > thresh) {
             		count[i] = count[i]+1;
                     geometry = new THREE.Geometry();
-                    geometry.vertices.push(new THREE.Vector3(d[i][0],d[i][1],d[i][2]));
-                    geometry.vertices.push(new THREE.Vector3(d[j][0],d[j][1],d[j][2]));
+                    geometry.vertices.push(new THREE.Vector3(d[i][0],d[i][2],d[i][1]));
+                    geometry.vertices.push(new THREE.Vector3(d[j][0],d[j][2],d[j][1]));
                     var color = new THREE.Color();
                     var rgb = colorindex(conns[i][j],max);
                     color.setRGB(colormap[rgb][0],colormap[rgb][1],colormap[rgb][2]);
@@ -218,7 +218,7 @@ function draw_all() {
 	  sphereMaterial);
 
 	
-      sphere.position.set(d[i][0],d[i][1],d[i][2]); 
+      sphere.position.set(d[i][0],d[i][2],d[i][1]); 
      
       console.log(sphere.position);  
       scene.add(sphere); 
