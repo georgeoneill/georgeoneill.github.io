@@ -1,12 +1,21 @@
-.hover_container {
+.hover_container_l {
   position: relative;
   width: 50%;
+  box-sizing: border_box;
+  float:left;
+}
+
+.hover_container_r {
+  position: relative;
+  width: 50%;
+  box-sizing: border_box;
+  float:right;
 }
 
 .hover_image {
   display: block;
-  width: 250px;
-  height: 250px;
+  max-width: 100%;
+  height: auto;
 }
 
 .hover_overlay {
@@ -22,7 +31,11 @@
   background-color: #008CBA;
 }
 
-.hover_container:hover .hover_overlay {
+.hover_container_l:hover .hover_overlay {
+  opacity: 1;
+}
+
+.hover_container_r:hover .hover_overlay {
   opacity: 1;
 }
 
