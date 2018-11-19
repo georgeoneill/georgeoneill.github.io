@@ -13,19 +13,29 @@
 </head>
 <body>
 
+
 <div class="container">
  <div id="canvas" style="padding: 0; margin: auto; display: block; width: 600px;">
- 	<script src="js/cortexviewer.js"></script>
+ 	<center><script src="js/cortexviewer.js"></script></center>
  </div>   
 </div>
 
  <center>
     <br>
+    Map:
     <div class="btn-group">      
-      <button class="button" onclick="changeOverlay('_ind');">Individual</button>
-      <button class="button" onclick="changeOverlay('_group');">Group</button>
+      <button type="button" class="btn btn-primary" onclick="changeOverlay('_ind');">Individual</button>
+      <button type="button" class="btn btn-primary" onclick="changeOverlay('_group');">Group</button>
+      <button type="button" class="btn btn-primary" onclick="changeOverlay('_evoked');">Evoked</button>
     </div>
-    <br>
+    <br><br>
+Quality:
+    <div class="btn-group">      
+      <button type="button" class="btn btn-primary" onclick="changeQuality('_lo');">Low</button>
+      <button type="button" class="btn btn-primary" onclick="changeQuality('_md');">Medium</button>
+      <!-- <button type="button" class="btn btn-danger" onclick="changeQuality('_hi');">High</button> -->
+    </div>
+
  </center>
 
 </body>

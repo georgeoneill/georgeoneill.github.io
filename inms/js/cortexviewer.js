@@ -1,5 +1,6 @@
 
-      var container, stats;
+      var container, stats, q, cortex, ready;
+      var map = null
       var camera, controls, scene, renderer;
       var cross;   
       init();                      
@@ -14,8 +15,11 @@
         container = document.getElementById('canvas');
         document.body.appendChild(container);
 
+
+        var width = Math.min(600, window.innerWidth);
+        canvas.width = width
         renderer = new THREE.WebGLRenderer();
-        renderer.setSize(600, 600);
+        renderer.setSize(width, width);
         renderer.setPixelRatio( window.devicePixelRatio );
         renderer.setClearColor( 0xeeeeee, 1);
         container.appendChild( renderer.domElement );
@@ -40,9 +44,12 @@
         camera.add( dirLight );
         camera.add( dirLight.target );
 
-		// Here have left and right cortices, load them in add them to the scene global variable.
-        loadCortex('data/lhcortex',-20,0,0);            
-        loadCortex('data/rhcortex',+20,0,0);    
+        // define the quality of the mesh and overlay as low (can be changed by user)
+        q = '_lo';
+
+		    // Here have left and right cortices, load them in add them to the scene global variable.
+        loadCortex('data/lcortex',-20,0,0);            
+        loadCortex('data/rcortex',+20,0,0);    
           
         renderer.setPixelRatio( window.devicePixelRatio );
         
@@ -61,22 +68,64 @@
 
       function changeOverlay(overlayType)
       {
-        scene.children[1].overlayFunction(1,overlayType);
+        map = overlayType // save this for later
+        var total = (scene.children.length);
+        if (total == 3) {
+          scene.children[1].overlayFunction(1,overlayType);
+          ready = true;
+        } else {
+
+        }
       }
       
-      function animate() {
-        requestAnimationFrame( animate );
-        controls.update();
-        renderer.render( scene, camera );        
+      function changeQuality(qtmp){
+
+        // First need to check if the quality has changed or we are just making work for ourselves...
+        if (qtmp === q) {
+          // no need to do anything
+        } else {
+          // delete all objects in the scene and load in the correct ones (but keep the camera!)
+          var total = (scene.children.length);
+          for (i = 1; i < total; i++) {
+            scene.remove(scene.children[1])
+          }
+          q = qtmp;
+
+          // redraw the cortices
+          loadCortex('data/lcortex',-20,0,0);            
+          loadCortex('data/rcortex',+20,0,0);    
+
+          // render the scene first
+          requestAnimationFrame( animate );
+          controls.update();
+          renderer.render( scene, camera );  
+
+          ready = false;
+
+          if (map) {
+            overlay_holding_pattern()
+          }
+
+        }
+        
       }
 
-	 function loadCortex(cortex,xp,yp,zp) {
+      function overlay_holding_pattern(){
+        if (scene.children.length!==3){
+          setTimeout(overlay_holding_pattern, 50);//wait 50 millisecnds then recheck
+          return;
+        }
+        changeOverlay(map)
+      }
+
+	   function loadCortex(cortex,xp,yp,zp) {
         var objectCor2
         // Actually have the loader include the other part to make it work
         // var geo = THREE.Geometry();
-        // var vertexColorMaterial         
+        // var vertexColorMaterial       
+        var filename = cortex.concat(q,'.vtk')  
         var loader = new THREE.VTKLoader();
-        loader.load( [cortex, 'vtk'].join('.'), function ( geometry ) {
+        loader.load ( filename, function ( geometry ) {
       
           vertexColorMaterial = new THREE.MeshBasicMaterial( { vertexColors: THREE.VertexColors } );
           geo = new THREE.Geometry().fromBufferGeometry( geometry );
@@ -112,10 +161,11 @@
               }
           }
 
+
           objectCor2 = new THREE.Mesh( geo, vertexColorMaterial );
           objectCor2.position.set( xp, yp, zp );
           objectCor2.scale.multiplyScalar( 0.4 );
-          objectCor2.name = cortex;
+          objectCor2.name = cortex.concat(q);
 
           // This is a method within the mesh object, and is needed here to load in the different overlay
           objectCor2.overlayFunction = function(idNumber,overlayType){
@@ -124,7 +174,7 @@
             var loader_overlay = new THREE.JSONLoader();
             var request = new XMLHttpRequest();
             // Now we need to open a new request using the open() method. Add the following line:
-            request.open('GET', [cortex, overlayType , '.json'].join(''));        
+            request.open('GET', cortex.concat(overlayType,'.json'));        
             request.responseType = 'json';
             request.send();
             var color_json;
