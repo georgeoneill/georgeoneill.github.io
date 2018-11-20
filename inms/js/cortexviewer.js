@@ -77,6 +77,16 @@
 
         }
       }
+
+      function addHandArea(){
+        var total = (scene.children.length);
+        for (i = 0; i < total; i++){
+          if (scene.children[i].name[5] === "r"){
+            scene.children[i].drawHand();
+          }
+        }
+      }
+
       
       function changeQuality(qtmp){
 
@@ -221,7 +231,47 @@
               }                        
 
           }
-            
+
+          objectCor2.drawHand = function(){
+            obj = this;
+            var hand = "data/hand";
+            var loader_overlay = new THREE.JSONLoader();
+            var request = new XMLHttpRequest();
+            // Now we need to open a new request using the open() method. Add the following line:
+            request.open('GET', hand.concat(q,'.json'));        
+            request.responseType = 'json';
+            request.send();
+
+            var boundary;
+            geo = obj.geometry;
+            request.onload  = function() {
+
+              boundary = request.response;  
+              vertexColorMaterial = new THREE.MeshBasicMaterial( { vertexColors: THREE.VertexColors } );
+              color = new THREE.Color( 0x000000 );
+              for ( var i = 0; i < geo.vertices.length; i++ ) 
+              {                  
+                if (boundary.perimeter[i]){      
+                  geo.colors[i] = color; 
+                }
+              }            
+
+              // copy the colors to corresponding positions 
+              //     in each face's vertexColors array.
+              for ( var i = 0; i < geo.faces.length; i++ ) 
+              {
+                  face = geo.faces[ i ];
+                  numberOfSides = ( face instanceof THREE.Face3 ) ? 3 : 4;
+                  for( var j = 0; j < numberOfSides; j++ ) 
+                  {
+                      vertexIndex = face[ faceIndices[ j ] ];                      
+                      geo.faces[ i ].vertexColors[ j ].set(geo.colors[vertexIndex]);
+                  }
+                obj.geometry.colorsNeedUpdate = true;      
+              }
+          }
+        }
+
           scene.add( objectCor2 );
       });
     };
