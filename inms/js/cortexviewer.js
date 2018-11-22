@@ -75,9 +75,7 @@
         var total = (scene.children.length);
         if (total == 3) {
           scene.children[1].overlayFunction(1,overlayType);
-          if (hand){
-			  addHandArea();
-		  }
+         
         } else {
 
         }
@@ -101,7 +99,9 @@
           if (map){
             changeOverlay(map);
           }
-		  
+		  if (hand){
+			  hand_holding_pattern();
+		  }
         }
       }
       
@@ -145,6 +145,13 @@
         changeOverlay(map)
       }
 
+	  function hand_holding_pattern(){
+		  if (!ready){
+			  setTimeout(hand_holding_pattern,50);
+			  return;
+		  }
+		  addHandArea();
+	  }
 	   function loadCortex(cortex,xp,yp,zp) {
         var objectCor2
         // Actually have the loader include the other part to make it work
@@ -196,6 +203,7 @@
 
           // This is a method within the mesh object, and is needed here to load in the different overlay
           objectCor2.overlayFunction = function(idNumber,overlayType){
+			ready = false;
             obj = this;
             cortex = obj.name;
             var loader_overlay = new THREE.JSONLoader();
@@ -245,8 +253,8 @@
                 scene.children[2].overlayFunction(2,overlayType);
               }
                 
-              }                        
-
+              }  
+			ready = true;
           }
 
           objectCor2.drawHand = function(){
