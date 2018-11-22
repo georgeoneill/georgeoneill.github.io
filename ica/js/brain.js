@@ -183,7 +183,13 @@ function draw_all() {
 						});
 						scene.add(new THREE.Line(geometry,material));
 					} else {
-						
+						// For windows only we'll use the meshline workaround.
+            var line = new MeshLine();
+            line.setgeometry(geometry,function(){return 10;}); // linewdith of 10
+            material = new MeshlineMaterial({
+              color: color
+            })
+            scene.add(new THREE.Mesh(line.geometry,material));
 					}
 					
             };
