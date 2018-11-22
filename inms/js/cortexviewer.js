@@ -1,5 +1,5 @@
 
-      var container, stats, q, cortex, ready, exp;
+      var container, stats, q, cortex, ready, exp, hand;
       var map = null
       var camera, controls, scene, renderer;
       var faceIndices = [ 'a', 'b', 'c', 'd' ];
@@ -48,6 +48,7 @@
 
         // define which experiment we need (inms to start)
         exp = '_inms';
+		hand = false;
 
 		    // Here have left and right cortices, load them in add them to the scene global variable.
         loadCortex('data/lcortex',-20,0,0);            
@@ -85,6 +86,7 @@
         for (i = 0; i < total; i++){
           if (scene.children[i].name[5] === "r"){
             scene.children[i].drawHand();
+			hand = true;
           }
         }
       }
@@ -97,6 +99,10 @@
           if (map){
             changeOverlay(map);
           }
+		  
+		  if (hand){
+			  addHandArea();
+		  }
         }
       }
       
@@ -122,7 +128,7 @@
           controls.update();
           renderer.render( scene, camera );  
 
-          ready = false;
+          hand = false;
 
           if (map) {
             overlay_holding_pattern()
