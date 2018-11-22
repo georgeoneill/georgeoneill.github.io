@@ -1,6 +1,5 @@
 
-      var container, stats, q, cortex, ready;
-      var map = null
+      var container, stats;
       var camera, controls, scene, renderer;
       var cross;   
       init();                      
@@ -15,11 +14,8 @@
         container = document.getElementById('canvas');
         document.body.appendChild(container);
 
-
-        var width = Math.min(600, window.innerWidth);
-        canvas.width = width
         renderer = new THREE.WebGLRenderer();
-        renderer.setSize(width, width);
+        renderer.setSize(600, 600);
         renderer.setPixelRatio( window.devicePixelRatio );
         renderer.setClearColor( 0xeeeeee, 1);
         container.appendChild( renderer.domElement );
@@ -44,12 +40,8 @@
         camera.add( dirLight );
         camera.add( dirLight.target );
 
-        // define the quality of the mesh and overlay as low (can be changed by user)
-        q = '_lo';
-
-		    // Here have left and right cortices, load them in add them to the scene global variable.
-        loadCortex('data/lcortex',-20,0,0);            
-        loadCortex('data/rcortex',+20,0,0);    
+    // Here have left and right cortices, load them in add them to the scene global variable.
+        loadCortex('data/cortex',-20,0,0);            
           
         renderer.setPixelRatio( window.devicePixelRatio );
         
@@ -59,83 +51,25 @@
         controls.update();
         renderer.render( scene, camera );  
       };
-  
-	   function animate() {
+
+      function changeOverlay(overlayType)
+      {
+        scene.children[1].overlayFunction(1,overlayType);
+      }
+      
+      function animate() {
         requestAnimationFrame( animate );
         controls.update();
         renderer.render( scene, camera );        
       }
 
-      function changeOverlay(overlayType)
-      {
-        map = overlayType // save this for later
-        var total = (scene.children.length);
-        if (total == 3) {
-          scene.children[1].overlayFunction(1,overlayType);
-          ready = true;
-        } else {
-
-        }
-      }
-
-      function addHandArea(){
-        var total = (scene.children.length);
-        for (i = 0; i < total; i++){
-          if (scene.children[i].name[5] === "r"){
-            scene.children[i].drawHand();
-          }
-        }
-      }
-
-      
-      function changeQuality(qtmp){
-
-        // First need to check if the quality has changed or we are just making work for ourselves...
-        if (qtmp === q) {
-          // no need to do anything
-        } else {
-          // delete all objects in the scene and load in the correct ones (but keep the camera!)
-          var total = (scene.children.length);
-          for (i = 1; i < total; i++) {
-            scene.remove(scene.children[1])
-          }
-          q = qtmp;
-
-          // redraw the cortices
-          loadCortex('data/lcortex',-20,0,0);            
-          loadCortex('data/rcortex',+20,0,0);    
-
-          // render the scene first
-          requestAnimationFrame( animate );
-          controls.update();
-          renderer.render( scene, camera );  
-
-          ready = false;
-
-          if (map) {
-            overlay_holding_pattern()
-          }
-
-        }
-        
-      }
-
-      function overlay_holding_pattern(){
-        if (scene.children.length!==3){
-          setTimeout(overlay_holding_pattern, 50);//wait 50 millisecnds then recheck
-          return;
-        }
-        changeOverlay(map)
-      }
-
-	   function loadCortex(cortex,xp,yp,zp) {
+      function loadCortex(cortex,xp,yp,zp) {
         var objectCor2
         // Actually have the loader include the other part to make it work
         // var geo = THREE.Geometry();
-        // var vertexColorMaterial       
-        var filename = cortex.concat(q,'.vtk')  
+        // var vertexColorMaterial         
         var loader = new THREE.VTKLoader();
-        loader.load ( filename, function ( geometry ) {
+        loader.load ( [cortex, 'vtk'].join('.'), function ( geometry ) {
       
           vertexColorMaterial = new THREE.MeshBasicMaterial( { vertexColors: THREE.VertexColors } );
           geo = new THREE.Geometry().fromBufferGeometry( geometry );
@@ -171,11 +105,10 @@
               }
           }
 
-
           objectCor2 = new THREE.Mesh( geo, vertexColorMaterial );
           objectCor2.position.set( xp, yp, zp );
           objectCor2.scale.multiplyScalar( 0.4 );
-          objectCor2.name = cortex.concat(q);
+          objectCor2.name = cortex;
 
           // This is a method within the mesh object, and is needed here to load in the different overlay
           objectCor2.overlayFunction = function(idNumber,overlayType){
@@ -184,7 +117,7 @@
             var loader_overlay = new THREE.JSONLoader();
             var request = new XMLHttpRequest();
             // Now we need to open a new request using the open() method. Add the following line:
-            request.open('GET', cortex.concat(overlayType,'.json'));        
+            request.open('GET', [cortex, overlayType , '.json'].join(''));        
             request.responseType = 'json';
             request.send();
             var color_json;
@@ -231,47 +164,7 @@
               }                        
 
           }
-
-          objectCor2.drawHand = function(){
-            obj = this;
-            var hand = "data/hand";
-            var loader_overlay = new THREE.JSONLoader();
-            var request = new XMLHttpRequest();
-            // Now we need to open a new request using the open() method. Add the following line:
-            request.open('GET', hand.concat(q,'.json'));        
-            request.responseType = 'json';
-            request.send();
-
-            var boundary;
-            geo = obj.geometry;
-            request.onload  = function() {
-
-              boundary = request.response;  
-              vertexColorMaterial = new THREE.MeshBasicMaterial( { vertexColors: THREE.VertexColors } );
-              color = new THREE.Color( 0x000000 );
-              for ( var i = 0; i < geo.vertices.length; i++ ) 
-              {                  
-                if (boundary.perimeter[i]){      
-                  geo.colors[i] = color; 
-                }
-              }            
-
-              // copy the colors to corresponding positions 
-              //     in each face's vertexColors array.
-              for ( var i = 0; i < geo.faces.length; i++ ) 
-              {
-                  face = geo.faces[ i ];
-                  numberOfSides = ( face instanceof THREE.Face3 ) ? 3 : 4;
-                  for( var j = 0; j < numberOfSides; j++ ) 
-                  {
-                      vertexIndex = face[ faceIndices[ j ] ];                      
-                      geo.faces[ i ].vertexColors[ j ].set(geo.colors[vertexIndex]);
-                  }
-                obj.geometry.colorsNeedUpdate = true;      
-              }
-          }
-        }
-
+            
           scene.add( objectCor2 );
       });
     };
