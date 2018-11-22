@@ -1,12 +1,9 @@
 
-      var container, stats, q, cortex, ready;
+      var container, stats, q, cortex, ready, exp;
       var map = null
       var camera, controls, scene, renderer;
-      var cross;   
       init();                      
       animate();    
-      var faceIndices = [ 'a', 'b', 'c', 'd' ];
-
 
       function init() {
         // camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.01, 1e10 );
@@ -46,6 +43,9 @@
 
         // define the quality of the mesh and overlay as low (can be changed by user)
         q = '_lo';
+
+        // define which experiment we need (inms to start)
+        exp = '_inms';
 
 		    // Here have left and right cortices, load them in add them to the scene global variable.
         loadCortex('data/lcortex',-20,0,0);            
@@ -87,6 +87,16 @@
         }
       }
 
+      function changeExperiment(etmp){
+        if (etmp === exp) {
+          // no need to do anything
+        } else {
+          e = etmp;
+          if (map){
+            changeOverlay(map);
+          }
+        }
+      }
       
       function changeQuality(qtmp){
 
@@ -184,7 +194,7 @@
             var loader_overlay = new THREE.JSONLoader();
             var request = new XMLHttpRequest();
             // Now we need to open a new request using the open() method. Add the following line:
-            request.open('GET', cortex.concat(overlayType,'.json'));        
+            request.open('GET', cortex.concat(exp,overlayType,'.json'));        
             request.responseType = 'json';
             request.send();
             var color_json;
