@@ -186,7 +186,7 @@ function draw_all() {
 						// For windows only we'll use the meshline workaround.
             var line = new MeshLine();
             line.setGeometry(geometry,function(){return 10;}); // linewdith of 10
-            material = new MeshlineMaterial({
+            material = new MeshLineMaterial({
               color: color
             })
             scene.add(new THREE.Mesh(line.geometry,material));
