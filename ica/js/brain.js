@@ -175,11 +175,17 @@ function draw_all() {
                     var color = new THREE.Color();
                     var rgb = colorindex(conns[i][j],max);
                     color.setRGB(colormap[rgb][0],colormap[rgb][1],colormap[rgb][2]);
-                    material = new THREE.LineBasicMaterial({
-                        color: color,
-                        linewidth: 10
-                    });
-                    scene.add(new THREE.Line(geometry,material));
+					
+					if (!isWindows()) {
+						material = new THREE.LineBasicMaterial({
+							color: color,
+							linewidth: 10
+						});
+						scene.add(new THREE.Line(geometry,material));
+					} else {
+						
+					}
+					
             };
         };
     };
@@ -307,4 +313,8 @@ function loadCortex(cortex,xp,yp,zp) {
         
       scene.add( objectCor2 );
     });
+}
+
+function isWindows() {
+  return navigator.platform.indexOf('Win') > -1
 }
