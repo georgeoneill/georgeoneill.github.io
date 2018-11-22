@@ -75,7 +75,9 @@
         var total = (scene.children.length);
         if (total == 3) {
           scene.children[1].overlayFunction(1,overlayType);
-          ready = true;
+          if (hand){
+			  addHandArea();
+		  }
         } else {
 
         }
@@ -100,9 +102,6 @@
             changeOverlay(map);
           }
 		  
-		  if (hand){
-			  addHandArea();
-		  }
         }
       }
       
