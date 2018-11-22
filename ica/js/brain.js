@@ -185,7 +185,7 @@ function draw_all() {
 					} else {
 						// For windows only we'll use the meshline workaround.
             var line = new MeshLine();
-            line.setGeometry(geometry,function(){return 10;}); // linewdith of 10
+            line.setGeometry(geometry,function(){return 3;}); // linewdith of 10
             material = new MeshLineMaterial({
               color: color
             })
