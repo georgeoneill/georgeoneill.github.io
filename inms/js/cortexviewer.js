@@ -93,7 +93,7 @@
         if (etmp === exp) {
           // no need to do anything
         } else {
-          e = etmp;
+          exp = etmp;
           if (map){
             changeOverlay(map);
           }
