@@ -2,6 +2,8 @@
       var container, stats, q, cortex, ready, exp;
       var map = null
       var camera, controls, scene, renderer;
+      var faceIndices = [ 'a', 'b', 'c', 'd' ];
+      
       init();                      
       animate();    
 
