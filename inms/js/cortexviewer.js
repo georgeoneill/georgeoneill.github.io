@@ -252,9 +252,9 @@
               if(idNumber<2){
                 scene.children[2].overlayFunction(2,overlayType);
               }
-                
+                ready = true;
               }  
-			ready = true;
+			
           }
 
           objectCor2.drawHand = function(){
