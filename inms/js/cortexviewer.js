@@ -331,12 +331,12 @@
 		  // build and draw sphere
 		  var sphereMaterial = new THREE.MeshLambertMaterial(
 			{
-			  color: 0xFF0000,
+			  color: 0xFF00FF,
 			  transparent: false
 			});
 		  
 		    var sphere = new THREE.Mesh(new THREE.SphereGeometry(2,10,5),sphereMaterial);
-			sphere.position.set = (x,y,z);
+			sphere.position.set(0.4*x,0.4*y,0.4*z);
 		    scene.add(sphere); 
 			animate();
 		  }
