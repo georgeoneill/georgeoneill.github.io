@@ -104,7 +104,7 @@
 					  var vid = 26812;
 					  break;
 				  case '_md':
-					  var vid = 25812;
+					  var vid = 26812;
 					  break;
 				  case '_lo':
 					  var vid = 4657;
