@@ -316,7 +316,7 @@
 				  var vid = 26812;
 				  break;
 			  case '_md':
-				  var vid = 25813;
+				  var vid = 25812;
 				  break;
 			  case '_lo':
 				  var vid = 4657;
@@ -338,7 +338,6 @@
 		    var sphere = new THREE.Mesh(new THREE.SphereGeometry(2,10,5),sphereMaterial);
 			sphere.position.set(0.4*x,0.4*y,0.4*z);
 		    scene.add(sphere); 
-			animate();
 		  }
           scene.add( objectCor2 );
       });
