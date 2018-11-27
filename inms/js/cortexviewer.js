@@ -305,7 +305,7 @@
           }
         }
 
-		  objectCor2.addPeak = function()(
+		  objectCor2.addPeak = function{
 		  obj = this;
 		  geo = obj.geometry;
 		  
@@ -336,7 +336,7 @@
 			sphere.position.set = (x,y,z);
 		    scene.add(sphere); 
 			animate();
-		  )
+		  }
           scene.add( objectCor2 );
       });
     };
