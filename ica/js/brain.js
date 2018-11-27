@@ -232,7 +232,7 @@ function draw_all() {
 	
       sphere.position.set(d[i][0],d[i][2],d[i][1]); 
      
-      console.log(sphere.position);  
+      // console.log(sphere.position);  
       scene.add(sphere); 
 
       animate();

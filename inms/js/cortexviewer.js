@@ -90,6 +90,14 @@
           }
         }
       }
+	  
+	  function addBetaPeak(){
+		     for (i = 0; i < total; i++){
+          if (scene.children[i].name[5] === "r"){
+            scene.children[i].addPeak();
+          }
+        }
+	  }
 
       function changeExperiment(etmp){
         if (etmp === exp) {
@@ -297,6 +305,38 @@
           }
         }
 
+		  objectCor2.addPeak = function()(
+		  obj = this;
+		  geo = obj.geometry;
+		  
+		  // work out which vertex we need to overlay the dot
+		  switch (q) {
+			  case '_hi':
+				  var vid = 26812;
+				  break;
+			  case '_md';
+				  var vid = 25813;
+				  break;
+			  case '_lo':
+				  var vid = 4657;
+		  }
+		  
+		  // get sphere centre coordinates
+		  var x = geo.vertices[vid].x;
+		  var y = geo.vertices[vid].y;
+		  var z = geo.vertices[vid].z;
+		  
+		  var sphereMaterial = new THREE.MeshLambertMaterial(
+			{
+			  color: 0xFF0000,
+			  transparent: false
+			});
+		  
+		    var sphere = new THREE.Mesh(new THREE.SphereGeometry(2,10,5),sphereMaterial);
+			sphere.position.set = (x,y,z);
+		    scene.add(sphere); 
+			animate();
+		  )
           scene.add( objectCor2 );
       });
     };
