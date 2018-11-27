@@ -305,7 +305,7 @@
           }
         }
 
-		  objectCor2.addPeak = function{
+		  objectCor2.addPeak = function (){
 		  obj = this;
 		  geo = obj.geometry;
 		  
