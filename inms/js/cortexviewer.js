@@ -92,7 +92,8 @@
       }
 	  
 	  function addBetaPeak(){
-		     for (i = 0; i < total; i++){
+		  var total = (scene.children.length)
+		  for (i = 0; i < total; i++){
           if (scene.children[i].name[5] === "r"){
             scene.children[i].addPeak();
           }
