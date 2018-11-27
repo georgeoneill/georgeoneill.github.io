@@ -73,7 +73,7 @@
       {
         map = overlayType // save this for later
         var total = (scene.children.length);
-        if (total == 3) {
+        if (total <= 3) {
           scene.children[1].overlayFunction(1,overlayType);
          
         } else {
