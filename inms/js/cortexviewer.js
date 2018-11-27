@@ -336,7 +336,7 @@
 			});
 		  
 		    var sphere = new THREE.Mesh(new THREE.SphereGeometry(2,10,5),sphereMaterial);
-			sphere.position.set(0.4*x,0.4*y,0.4*z);
+			sphere.position.set(20+0.4*x,0.4*y,0.4*z);
 		    scene.add(sphere); 
 		  }
           scene.add( objectCor2 );
