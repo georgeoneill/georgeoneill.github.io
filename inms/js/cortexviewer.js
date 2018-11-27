@@ -127,7 +127,7 @@
 				sphere.position.set(20+0.4*x,0.4*y,0.4*z);
 				scene.add(sphere); 
 			  }
-          }
+          
         }
 	  }
 
