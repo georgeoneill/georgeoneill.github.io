@@ -314,7 +314,7 @@
 			  case '_hi':
 				  var vid = 26812;
 				  break;
-			  case '_md';
+			  case '_md':
 				  var vid = 25813;
 				  break;
 			  case '_lo':
@@ -326,6 +326,8 @@
 		  var y = geo.vertices[vid].y;
 		  var z = geo.vertices[vid].z;
 		  
+		  
+		  // build and draw sphere
 		  var sphereMaterial = new THREE.MeshLambertMaterial(
 			{
 			  color: 0xFF0000,
