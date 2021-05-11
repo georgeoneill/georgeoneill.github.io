@@ -14,35 +14,35 @@ An experimental method of extracting subcortical meshes, smoothing and registeri
 ### Setting up the environment
 Assuming Freesurfer has been installed correctly on your device you need to add the correct paths to the environment, we need the `FREESURFER_HOME` and `SUBJECTS_DIR` to be set beforehand. Either add this to your `.bashrc` file or type the following commands into the command line:
 
-```
+```bash
 export FREESURFER_HOME = /path/to/freesurfer
 export SUBJECTS_DIR = /path/to/subjects_dir
 source $FREESURFER_HOME/SetUpFreeSurfer.sh
 ```
 **Optional:** You may want to permenantly install the spharm-pdm binaries somwhere permenant (such as `/usr/local`), if so copy the folder to you desired location, and then either add this `.bashrc` file or type the following commands into the command line:
 
-```
+```bash
 export PATH=$PATH:/path/to/spharm-pdm
 ```
 Note, setting up spharm-pdm in your environment is optional, as if the spharm-pdm folder is in the same folder as `extract_hippocampa.py` it will automatically add to path.
 
 ### Running FreeSurfer
 If you have an anatomical you are ready to process, run the `recon-all` pipeline. An example usage is shown below, to generate a subject called 001.
-```
+```bash
 recon-all -i /path/to/anatomical.nii -s 001 -all -parallel
 ```
 This could take up to 10 hours, maybe more if the anatomical is pretty noisy/comes from a poorly designed 7T scan. Adding the `-parallel` flag can get speed up the process if you have a quad-core (or better) machine. I've seen it as low as 3 hours on a good day. Have some tea, read a paper, call your mother in the mean time.
 
 ### Post FreeSurfer Extraction
 Assuming Freesurfer has compelted without any problems, we can now do the initial processing to extract the hippocampal surfaces. Run the python code to do some sanity checks and call the spharm-pdm functions to generate some hippocampal meshes for subject 001
-```
+```bash
 python3 extract_hippocampi.py 001
 ```
 This will generate a folder in `/path/to/subjects_dir/001` called `subsurf` which contains the files we need for the final step.
 
 ### Spherical Harmonic Smoothing in MATLAB
 Within MATLAB, to generate a bilateral hippocampal mesh using a 12th order spherical harmonic decomposition, run the following.
-```
+```matlab
 S = [];
 S.fsdir   = '/path/to/subjects_dir';
 S.subject = '001';
@@ -71,7 +71,7 @@ Below are a couple of examples how how varying the downsampling and l (spherical
 ### Registering a subject to a template structre
 A full example can be found in `SHREC_tutorial.m` but in short you can generate the morphing vector to nearest neighbour interpolate results from a subject to any other subject (or presumably a template subject such as fsaverage) by calling `go_subcorticalRegister`. To register subject 001 to fsaverage and have 642 vertices per hemisphere
 
-```
+```matlab
 S = [];
 S.fsdir   = '/path/to/subjects_dir';
 S.orig.subject = '001';
