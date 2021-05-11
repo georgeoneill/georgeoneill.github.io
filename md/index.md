@@ -91,9 +91,3 @@ The morpher acts as a lookup table allowing to perform a nearest neighbour inter
 <p align="center">
 <img src="./readme_images/warped_stats.png"> 
 </p>
-
-
-
-#### Test plz ignore
-
-`$$ax^2 + bx + c = 0$$`
