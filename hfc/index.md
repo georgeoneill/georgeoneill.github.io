@@ -57,3 +57,9 @@ ans =
 ```
 
 But that doesn't matter as the balancing matrix shows that in the old array channel 3 (G2-MW-Y) uses coil 3, but in the new array even though G2-MW-Y is now channel 58, the coil info hasn't moved and the matrix is still telling us to use coil 3.
+
+
+### Checking against a dipole fit
+
+Proof this fix this morning was total bobbins. Here's is a deep dipole (which is highly sensitive to HFC) when a sensor was excluded, the fit totally breaks compared the original version of the code this week.
+![image](https://user-images.githubusercontent.com/3579812/191507700-8c95cc26-1f6a-4391-90f0-96291736571b.png)
