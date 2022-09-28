@@ -37,7 +37,18 @@
             if (fig.options === "undefined") {
               fig.options = {};
             }
-            Plotly.newPlot("plotly", fig.data, fig.layout, fig.options);
+			var data = [{
+				i: fig.i,
+				j: fig.j,
+				k: fig.k,
+				type: fig.type,
+				vertexcolor: fig.vertexcolor,
+				x: fig.x,
+				y: fig.y,
+				z: fig.z
+			  }
+			];
+            Plotly.newPlot("plotly", data, fig.layout, fig.options);
           });
         }
       }
