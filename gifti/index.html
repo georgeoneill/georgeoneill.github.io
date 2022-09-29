@@ -3,13 +3,41 @@
   <head>
     <meta charset="utf-8"/>
     <title>GIfTI mesh</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
-    <script src="https://cdn.plot.ly/plotly-2.4.2.min.js"></script>
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	<script src="//d3js.org/d3-scale-chromatic.v0.3.min.js"></script>
 	<script src="http://benschmidt.org/colorbar/colorbar.js"></script>
   </head>
   <body>
     <div id="plotly" style="height: 650px;width: 800px;"></div>
-	<div id="cbar" style="height: 100px;width: 800px;"></div>
+	<div id="cbar" style="height: 100px;width: 800px;">
+	<script type="text/javascript">
+	var width = 400,
+    height = 30;
+
+var svg = d3.select("body")
+    .append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .append("g")
+
+var colorScale = d3.scaleSequential(d3.interpolateRdBu)
+    .domain([0, width])
+
+const interpolator = colorScale.interpolator(); // read its interpolator
+const mirror = t => interpolator(1 - t); // creates a mirror image of the interpolator
+colorScale.interpolator(mirror);
+
+var bars = svg.selectAll(".bars")
+    .data(d3.range(width), function(d) { return d; })
+  .enter().append("rect")
+    .attr("class", "bars")
+    .attr("x", function(d, i) { return i; })
+    .attr("y", 0)
+    .attr("height", height)
+    .attr("width", 1)
+    .style("fill", function(d, i ) { return colorScale(d); })  
+	</script>
+	</div>
     <script type="text/javascript">
       //var queries = location.search.split("?")[1];
       var queries = "file=simple_mesh.json";
@@ -57,20 +85,7 @@
         }
       }
     </script>
-	<script type="text/javascript">
-	myScale = d3.scale.linear().range(["blue","white","red"]).domain([-16,0,16])
 
-colorbar = Colorbar()
-	.scale(myScale)
-	.orient("horizontal")
-  .barlength(400)
-  .thickness(40)
-
-placeholder = "#cbar"
-
-colorbarObject = d3.select(placeholder)
-    .call(colorbar)
-	</script>
 	
 	
   </body>
