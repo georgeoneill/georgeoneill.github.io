@@ -23,9 +23,9 @@
 
 ## Experimental setup
 
-We are using an altered version of the [flank detection task](https://www.fieldtriptoolbox.org/example/measuring_the_timing_delay_and_jitter_for_a_real-time_application/) on the FieldTrip website. Our version can be found at the [end of this document](#flank-code). In summary:
+We are using an altered version of the [flank detection task](https://www.fieldtriptoolbox.org/example/measuring_the_timing_delay_and_jitter_for_a_real-time_application/) on the FieldTrip website. Our version can be found at the [bottom of the page](#flank-code). In summary:
 
-- We use a Raspberry Pi Pico micro-controller to generate a 100 ms wide pulse on one of the GPIO pins, which is fed into the CTF MEG electronics from one of the front-panel ADC ports. 
+- A Raspberry Pi Pico micro-controller to generates a 100 ms wide pulse on one of the GPIO pins, which is fed into the CTF MEG electronics from one of the front-panel ADC ports. 
 - The data from the CTF system is sent over the network; from the Acquisition PC using the executable `ctf2ft_v3` [link to source](https://github.com/fieldtrip/fieldtrip/blob/master/realtime/src/acquisition/ctf/ctf2ft_v3.c) to the Stim PC using the executable `buffer.exe` available in FieldTrip.
 - MATLAB or Python scripts on the Stim PC reads the local buffer and performs a rising edge detection on the ADC channel of interest. Upon a successful detection a parallel port trigger is sent back to the CTF system for offline analysis.
 
@@ -41,7 +41,7 @@ A block diagram of the setup is below
 - There were two modes of pulse generation tested:
     1. **Random:** 100 ms pulse with a 350-1000 ms jittered interval after pulse offset.
     2. **Ordered:** 100 ms pulse with 350 ms interval after pulse offset.
-- Data was recorded for each mode, 300 responses were colleted and the latency between the initial pulse and parallel port trigger were analysed.
+- Data was recorded for each mode, 300 responses were collected and the latency between the initial pulse and parallel port trigger were analysed.
 
 > :computer: **Fieldtrip code note:** The execution time of the code varied quite  depending on the language/method of communicating with the buffer. Here the timing refers to the time it takes to determine if any new data is in the buffer, read the last 200 ms of data, detect a rising edge and send a pulse 1ms wide. 
 
@@ -76,9 +76,11 @@ Results from the two pulse generation methods shown below. The black dots repres
     <img src="./images/latency_cycle.png" width=45%/>
 </p>
 
-### acq2ft_v3 output
+### ctf2ft_v3 output
 
 - The console output from `ctf2ft_v3` suggests that new packets data were being released from the CTF acquisition software every 40 ms _irrespective of the sample rate used_.
+
+Below is the the command line output from `ctf2ft_v3` when a sample rate for 600 Hz was used, showing every 40 ms a packet is received.
 
 ```
 600 Hz
@@ -104,7 +106,7 @@ Data |  48 samples | ID=509 | slot=509 | dT= 50.0  mT=40.0  sT= 6.0
 Data |  48 samples | ID=510 | slot=510 | dT= 30.0  mT=40.0  sT= 6.0
 ```
 
-> :computer: **Fieldtrip code note:** We noticed that the memory for each ACQ packet is [overallocated by 4000 bytes](https://github.com/fieldtrip/fieldtrip/blob/466108925b3f0abaa2f44b38dbd8e35c2ab625d4/realtime/src/acquisition/ctf/ctf2ft_v3.c#L34) to overcome an issue where [too much data is sent in error](https://www.fieldtriptoolbox.org/development/realtime/ctf/#number-of-channels). We reduced the overallocation size down to 0 and it reduced the standard deviation from **6.0 ms** to **0.5 ms**. No issues with segmentation faults after slot 600 occurred. All further console outputs are from this version of the code.
+> :computer: **Fieldtrip code note:** We noticed that the total memory for each ACQ packet is [overallocated by 4000 bytes](https://github.com/fieldtrip/fieldtrip/blob/466108925b3f0abaa2f44b38dbd8e35c2ab625d4/realtime/src/acquisition/ctf/ctf2ft_v3.c#L34) to overcome an issue where [too much data is sent in error](https://www.fieldtriptoolbox.org/development/realtime/ctf/#number-of-channels) on the older versions of Acq.. We reduced the overallocation size down to 0 and it reduced the standard deviation from **6.0 ms** to **0.5 ms**. No issues with segmentation faults after slot 600 occurred. All further console outputs are from this version of the code.
 
 At 2400 Hz the number of samples per packet would remain at ~48 (see below), but would send two packets at a time.
 
