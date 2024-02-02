@@ -19,7 +19,7 @@
 |---|---|
 |**Scanner type**| 275 channel CTF |
 | **Electronics Type** | DSQ-3500 |
-| **ACQ version** | ??? |
+| **ACQ version** | 6.1.14_beta  |
 
 ## Experimental setup
 
