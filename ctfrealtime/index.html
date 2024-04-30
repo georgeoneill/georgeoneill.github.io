@@ -1,0 +1,401 @@
+<!DOCTYPE html><html><head>
+      <title>report</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\George O'Neill\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.13\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="ctf-realtime-latency-findings">CTF Realtime Latency Findings </h1>
+<h2 id="summary-tldr">Summary (tl;dr) </h2>
+<blockquote>
+<ul>
+<li>
+<p>Using the realtime code from Fieldtrip for the CTF system we <strong>manage a minimum latency  of ~20 ms</strong> from a simulated neural feature being generated to being digitised by the CTF  system, and then subsequently detected by our realtime detector.</p>
+</li>
+<li>
+<p>However, it appears there is a robust <strong>uniform distribution of latencies 40 ms wide</strong>, so a maximal latency of ~60 ms is equally as likely.</p>
+</li>
+<li>
+<p>This 40 ms variability does not appear to be altered by the sample rate of the MEG or the number of channels sent from the MEG to the stim PC, implying this might be <strong>a fundamental feature of how the CTF system releases data into the shared memory segment</strong>.</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="unanswered-questions">Unanswered questions </h3>
+<ol>
+<li>Does the version of Acq we use only hand over data every 40 ms?</li>
+<li>If not is this something in the FieldTrip <code>ctf2ft_v3</code> or <code>buffer</code> implementations  which is introducing this behaviour?</li>
+</ol>
+<h2 id="meg-information">MEG Information </h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Scanner type</strong></td>
+<td>275 channel CTF</td>
+</tr>
+<tr>
+<td><strong>Electronics Type</strong></td>
+<td>DSQ-3500</td>
+</tr>
+<tr>
+<td><strong>ACQ version</strong></td>
+<td>6.1.14_beta</td>
+</tr>
+</tbody>
+</table>
+<h2 id="experimental-setup">Experimental setup </h2>
+<p>We are using an altered version of the <a href="https://www.fieldtriptoolbox.org/example/measuring_the_timing_delay_and_jitter_for_a_real-time_application/">flank detection task</a> on the FieldTrip website. Our version can be found at the <a href="#flank-code">bottom of the page</a>. In summary:</p>
+<ul>
+<li>A Raspberry Pi Pico micro-controller to generates a 100 ms wide pulse on one of the GPIO pins, which is fed into the CTF MEG electronics from one of the front-panel ADC ports.</li>
+<li>The data from the CTF system is sent over the network; from the Acquisition PC using the executable <code>ctf2ft_v3</code> <a href="https://github.com/fieldtrip/fieldtrip/blob/master/realtime/src/acquisition/ctf/ctf2ft_v3.c">link to source</a> to the Stim PC using the executable <code>buffer.exe</code> available in FieldTrip.</li>
+<li>MATLAB or Python scripts on the Stim PC reads the local buffer and performs a rising edge detection on the ADC channel of interest. Upon a successful detection a parallel port trigger is sent back to the CTF system for offline analysis.</li>
+</ul>
+<p>A block diagram of the setup is below</p>
+<p align="center">
+    <img src="./images/experimental_block_diagram.png" width="75%/">
+</p>
+<h3 id="initial-experiment">Initial experiment </h3>
+<ul>
+<li>CTF system was set to 600 Hz sampling rate, no head localisation, only a single channel (<code>UADC013</code>) was sent between the machines.</li>
+<li>There were two modes of pulse generation tested:
+<ol>
+<li><strong>Random:</strong> 100 ms pulse with a 350-1000 ms jittered interval after pulse offset.</li>
+<li><strong>Ordered:</strong> 100 ms pulse with 350 ms interval after pulse offset.</li>
+</ol>
+</li>
+<li>Data was recorded for each mode, 300 responses were collected and the latency between the initial pulse and parallel port trigger were analysed.</li>
+</ul>
+<blockquote>
+<p>💻 <strong>Fieldtrip code note:</strong> The execution time of the code varied quite  depending on the language/method of communicating with the buffer. Here the timing refers to the time it takes to determine if any new data is in the buffer, read the last 200 ms of data, detect a rising edge and send a pulse 1ms wide.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Language</th>
+<th>Buffer Call Method</th>
+<th>Avg. Execution time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MATLAB</td>
+<td><code>ft_read_header</code>/<code>ft_read_data</code></td>
+<td>14 ms</td>
+</tr>
+<tr>
+<td>MATLAB</td>
+<td><code>buffer.mex*</code></td>
+<td>4 ms</td>
+</tr>
+<tr>
+<td>Python</td>
+<td><a href="https://github.com/fieldtrip/fieldtrip/blob/master/realtime/src/buffer/python/FieldTrip.py"><code>FieldTrip.py</code> link for code</a></td>
+<td>2 ms</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong>  Python can be set up the send the parallel port trigger as a threaded process, without halting the rest of the code, so in theory this time could be reduced further!</p>
+<h2 id="results">Results </h2>
+<p>An example of the input signal from the microcontroller (blue) and the response trigger when this is detected (red) are shown below.</p>
+<p align="center">
+    <img src="./images/timeseries.png" width="60%/">
+</p>
+<p>Results from the two pulse generation methods shown below. The black dots represent the latencies for each individual trial whilst the right plot is a histogram showing how the latencies are distributed.</p>
+<p align="center">
+    <img src="./images/latency_results.png" width="90%/">
+</p>
+<ul>
+<li>With the exception of 4 trials (???), latencies are between 20 ms and 60 ms for the Random interval mode.</li>
+<li>The ordered mode generated latencies at 4 specific times, 15 ms, 25 ms, 35 ms, and 45 ms.</li>
+<li>Zooming in on the ordered mode latencies for the ordered mode shows it cycles through the latencies from worst to best before wrapping around again.</li>
+</ul>
+<p align="center">
+    <img src="./images/latency_cycle.png" width="45%/">
+</p>
+<h3 id="ctf2ft_v3-output">ctf2ft_v3 output </h3>
+<ul>
+<li>The console output from <code>ctf2ft_v3</code> suggests that new packets data were being released from the CTF acquisition software every 40 ms <em>irrespective of the sample rate used</em>.</li>
+</ul>
+<p>Below is the the command line output from <code>ctf2ft_v3</code> when a sample rate for 600 Hz was used, showing every 40 ms a packet is received.</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>600 Hz
+Data |  24 samples | ID=216 | slot=216 | dT= 40.0  mT=40.0  sT= 0.0
+Data |  24 samples | ID=217 | slot=217 | dT= 40.0  mT=40.0  sT= 0.0
+Data |  24 samples | ID=218 | slot=218 | dT= 40.0  mT=40.0  sT= 0.0
+Data |  24 samples | ID=219 | slot=219 | dT= 40.0  mT=40.0  sT= 0.0
+</code></pre><p><strong>Note:</strong> dT = time between received packets from Acq, mT is the mean time between packets, sT is the standard error (or deviation - will confirm).</p>
+<h4 id="other-sampling-rates">Other sampling rates </h4>
+<p>At 1200 Hz, the number of samples handed over in one go doubles and the average time of 40 ms between packets received is maintained.</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>1200 Hz
+Data |  48 samples | ID=507 | slot=507 | dT= 40.0  mT=40.0  sT= 6.0
+Data |  48 samples | ID=508 | slot=508 | dT= 40.0  mT=40.0  sT= 6.0
+Data |  48 samples | ID=509 | slot=509 | dT= 50.0  mT=40.0  sT= 6.0
+Data |  48 samples | ID=510 | slot=510 | dT= 30.0  mT=40.0  sT= 6.0
+</code></pre><blockquote>
+<p>💻 <strong>Fieldtrip code note:</strong> We noticed that the total memory for each ACQ packet is <a href="https://github.com/fieldtrip/fieldtrip/blob/466108925b3f0abaa2f44b38dbd8e35c2ab625d4/realtime/src/acquisition/ctf/ctf2ft_v3.c#L34">overallocated by 4000 bytes</a> to overcome an issue where <a href="https://www.fieldtriptoolbox.org/development/realtime/ctf/#number-of-channels">too much data is sent in error</a> on the older versions of Acq.. We reduced the overallocation size down to 0 and it reduced the standard deviation from <strong>6.0 ms</strong> to <strong>0.5 ms</strong>. No issues with segmentation faults after slot 600 occurred. All further console outputs are from this version of the code.</p>
+</blockquote>
+<p>At 2400 Hz the number of samples per packet would remain at ~48 (see below), but would send two packets at a time.</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>2400 Hz
+Data |  47 samples | ID=300 | slot=300 | dT=  0.0  mT=20.0  sT= 19.9
+Data |  49 samples | ID=301 | slot=301 | dT= 40.0  mT=20.0  sT= 19.9
+Data |  47 samples | ID=302 | slot=302 | dT=  0.0  mT=20.0  sT= 19.9
+Data |  49 samples | ID=303 | slot=303 | dT= 40.0  mT=20.0  sT= 19.9
+Data |  47 samples | ID=304 | slot=304 | dT=  0.0  mT=20.0  sT= 19.9
+Data |  49 samples | ID=305 | slot=305 | dT= 40.0  mT=20.0  sT= 19.9
+Data |  47 samples | ID=306 | slot=306 | dT=  0.0  mT=20.0  sT= 19.9
+Data |  49 samples | ID=307 | slot=307 | dT= 40.0  mT=20.0  sT= 19.9
+</code></pre><p>For higher frequencies the number of samples in a packet or the number of packets released at once continues to increase.</p>
+<p><strong>Note:</strong> we also looked at whether decimating the data using the functionality built into <code>ctf2ft_v3</code> would change the 40 ms jitter, this did not.</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>6400 Hz
+Data |  86 samples | ID=169 | slot=169 | dT= 40.0  mT=13.3  sT= 18.8
+Data |  86 samples | ID=170 | slot=170 | dT=  0.0  mT=13.3  sT= 18.8
+Data |  84 samples | ID=171 | slot=171 | dT=  0.0  mT=13.3  sT= 18.8
+Data |  86 samples | ID=172 | slot=172 | dT= 39.9  mT=13.3  sT= 18.8
+Data |  86 samples | ID=173 | slot=173 | dT=  0.0  mT=13.3  sT= 18.8
+Data |  84 samples | ID=174 | slot=174 | dT=  0.0  mT=13.3  sT= 18.8
+Data |  86 samples | ID=175 | slot=175 | dT= 40.0  mT=13.3  sT= 18.8
+Data |  86 samples | ID=176 | slot=176 | dT=  0.0  mT=13.3  sT= 18.8
+Data |  84 samples | ID=177 | slot=177 | dT=  0.0  mT=13.3  sT= 18.8
+</code></pre><pre data-role="codeBlock" data-info="" class="language-text"><code>19200 Hz
+Data |  86 samples | ID=361 | slot=361 | dT= 39.9  mT=13.3  sT= 12.5
+Data |  86 samples | ID=362 | slot=362 | dT=  0.0  mT=13.3  sT= 12.5
+Data |  86 samples | ID=363 | slot=363 | dT=  0.0  mT=13.3  sT= 12.5
+Data |  86 samples | ID=364 | slot=364 | dT=  0.0  mT=13.3  sT= 12.5
+Data |  86 samples | ID=365 | slot=365 | dT=  0.0  mT=13.3  sT= 12.5
+Data |  86 samples | ID=366 | slot=366 | dT=  0.0  mT=13.3  sT= 12.5
+Data |  86 samples | ID=367 | slot=367 | dT=  0.0  mT=13.3  sT= 12.5
+Data |  86 samples | ID=368 | slot=368 | dT=  0.0  mT=13.3  sT= 12.5
+Data |  80 samples | ID=369 | slot=369 | dT=  0.0  mT=13.3  sT= 12.5
+Data |  86 samples | ID=370 | slot=370 | dT= 39.9  mT=13.3  sT= 12.5
+Data |  86 samples | ID=371 | slot=371 | dT=  0.0  mT=13.3  sT= 12.5
+Data |  86 samples | ID=372 | slot=372 | dT=  0.0  mT=13.3  sT= 12.5
+Data |  86 samples | ID=373 | slot=373 | dT=  0.0  mT=13.3  sT= 12.5
+Data |  86 samples | ID=374 | slot=374 | dT=  0.0  mT=13.3  sT= 12.5
+Data |  86 samples | ID=375 | slot=375 | dT=  0.0  mT=13.3  sT= 12.5
+Data |  86 samples | ID=376 | slot=376 | dT=  0.0  mT=13.3  sT= 12.5
+Data |  86 samples | ID=377 | slot=377 | dT=  0.0  mT=13.3  sT= 12.5
+Data |  80 samples | ID=378 | slot=378 | dT=  0.0  mT=13.3  sT= 12.5
+</code></pre><h3 id="flank-code">Flank Code </h3>
+<h4 id="matlab---calling-the-buffer-directly">MATLAB - calling the buffer directly </h4>
+<pre data-role="codeBlock" data-info="matlab" class="language-matlab matlab"><code>HOSTNAME <span class="token operator">=</span> <span class="token string">'localhost'</span><span class="token punctuation">;</span> <span class="token comment">% name of computer (leave as localhost)</span>
+PORT <span class="token operator">=</span> <span class="token number">1972</span><span class="token punctuation">;</span>            <span class="token comment">% port number (leave as 1972)</span>
+WINDOW <span class="token operator">=</span> <span class="token number">0.2</span><span class="token punctuation">;</span>           <span class="token comment">% how much of newest data to process (in seconds)</span>
+HOLD <span class="token operator">=</span> <span class="token number">24</span><span class="token punctuation">;</span>              <span class="token comment">% how many new samples before new data is read in</span>
+TOTHITS <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span>          <span class="token comment">% number of rising edges detected before quitting loop</span>
+CHANNEL <span class="token operator">=</span> <span class="token string">'UADC013'</span><span class="token punctuation">;</span>    <span class="token comment">% which channel to detect rising edges on</span>
+THRESHOLD <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>          <span class="token comment">% Which gradient are we expecting</span>
+DEADTIME <span class="token operator">=</span> <span class="token number">0.2</span><span class="token punctuation">;</span>         <span class="token comment">% Minimum time between events (in seconds)</span>
+
+<span class="token comment">%% Code runs below</span>
+
+<span class="token comment">% start by reading the header from the realtime buffer</span>
+hdr <span class="token operator">=</span> <span class="token function">buffer</span><span class="token punctuation">(</span><span class="token string">'get_hdr'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> HOSTNAME<span class="token punctuation">,</span> PORT<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">% define a subset of channels for reading from CHANNEL option</span>
+chanindx    <span class="token operator">=</span> <span class="token function">match_str</span><span class="token punctuation">(</span>hdr<span class="token punctuation">.</span>channel_names<span class="token punctuation">,</span> CHANNEL<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">% determine the size of blocks to process</span>
+overlap   <span class="token operator">=</span> <span class="token function">floor</span><span class="token punctuation">(</span>WINDOW<span class="token operator">*</span>hdr<span class="token punctuation">.</span>fsample<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">% determine how many samples the deadtime is</span>
+deadtime  <span class="token operator">=</span> <span class="token function">floor</span><span class="token punctuation">(</span>DEADTIME<span class="token operator">*</span>hdr<span class="token punctuation">.</span>fsample<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">% intialise variables for loop</span>
+oldSamples <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+hits <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+prev_hit <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+prevSample  <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+
+<span class="token function">disp</span><span class="token punctuation">(</span><span class="token string">'waiting for first trigger!'</span><span class="token punctuation">)</span>
+<span class="token comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="token comment">% this is the general BCI loop where realtime incoming data is handled</span>
+<span class="token comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="token keyword keyword-while">while</span> hits <span class="token operator">&lt;</span> TOTHITS <span class="token comment">% have we found more than TOTHITS number of triggers?</span>
+ 
+    <span class="token comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+    <span class="token comment">% 1) at this part of the loop we are checking the header to see if </span>
+    <span class="token comment">% enough new data has been put in the buffer before we read/process it,</span>
+    <span class="token comment">% saves us wasting time reprocessing old data</span>
+    <span class="token comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+
+    t0 <span class="token operator">=</span> tic<span class="token punctuation">;</span>
+    hdr <span class="token operator">=</span> <span class="token function">buffer</span><span class="token punctuation">(</span><span class="token string">'get_hdr'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> HOSTNAME<span class="token punctuation">,</span> PORT<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    newSamples <span class="token operator">=</span> <span class="token punctuation">(</span>hdr<span class="token punctuation">.</span>nsamples<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword keyword-if">if</span> newSamples <span class="token operator">-</span> oldSamples <span class="token operator">&gt;=</span> HOLD <span class="token comment">% enough new samples!</span>
+
+        <span class="token comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+        <span class="token comment">% 2) if there was enough new data in the buffer, we want to read in</span>
+        <span class="token comment">% only the newest data. How much data is defined by the WINDOW</span>
+        <span class="token comment">% variable at the top of the script. Once read in the target</span>
+        <span class="token comment">% channel is differentiated and if the gradient is above a</span>
+        <span class="token comment">% threshold then we've detected a trigger event!</span>
+        <span class="token comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+
+        <span class="token comment">% determine the samples to process</span>
+        endSamples <span class="token operator">=</span> newSamples<span class="token punctuation">;</span>
+        begSamples <span class="token operator">=</span> endSamples <span class="token operator">-</span> overlap<span class="token punctuation">;</span>
+
+        <span class="token comment">% read</span>
+        datstruct <span class="token operator">=</span> <span class="token function">buffer</span><span class="token punctuation">(</span><span class="token string">'get_dat'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>begSamples endSamples<span class="token punctuation">]</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> HOSTNAME<span class="token punctuation">,</span> PORT<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        dat <span class="token operator">=</span> datstruct<span class="token punctuation">.</span>buf<span class="token punctuation">;</span>
+
+        <span class="token comment">% differentiate data segment in trigger channel</span>
+        ddat <span class="token operator">=</span> <span class="token function">diff</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token function">dat</span><span class="token punctuation">(</span>chanindx<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token function">dat</span><span class="token punctuation">(</span>chanindx<span class="token punctuation">,</span><span class="token operator">:</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">% detect flanks in CHANNEL that are of certain size </span>
+        idx <span class="token operator">=</span> <span class="token function">find</span><span class="token punctuation">(</span>ddat <span class="token operator">&gt;=</span> THRESHOLD<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'first'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword keyword-if">if</span> <span class="token operator">~</span><span class="token function">isempty</span><span class="token punctuation">(</span>idx<span class="token punctuation">)</span> <span class="token comment">% found an event</span>
+
+            <span class="token comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+            <span class="token comment">% 3) If we have found a trigger we need to check its not come</span>
+            <span class="token comment">% so soon after the last one, incase we've accidentally </span>
+            <span class="token comment">% detected the same event twice on multiple loop iterations</span>
+            <span class="token comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+            
+            <span class="token comment">% work the true sample number when an event happen. </span>
+            this_hit <span class="token operator">=</span> begSamples <span class="token operator">+</span> idx<span class="token punctuation">;</span>
+
+            <span class="token keyword keyword-if">if</span> this_hit <span class="token operator">-</span> prev_hit <span class="token operator">&gt;</span> deadtime <span class="token comment">% its not a repreat hit</span>
+
+                <span class="token comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+                <span class="token comment">% 4) At this point we would send a trigger in the real code</span>
+                <span class="token comment">% but this has been removed from this example.</span>
+                <span class="token comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+                
+                <span class="token comment">% send_trigger()</span>
+
+                dS <span class="token operator">=</span> this_hit <span class="token operator">-</span> prev_hit<span class="token punctuation">;</span>
+                dT <span class="token operator">=</span> <span class="token function">toc</span><span class="token punctuation">(</span>t0<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">1000</span><span class="token punctuation">;</span>
+                hits <span class="token operator">=</span> hits <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+                <span class="token function">fprintf</span><span class="token punctuation">(</span><span class="token string">'Flank: %03i/%03i | dS: %04i samples | dT: %.3f s | Loop Time : %.2f ms\n'</span><span class="token punctuation">,</span><span class="token punctuation">...</span>
+                    hits<span class="token punctuation">,</span> TOTHITS<span class="token punctuation">,</span> dS<span class="token punctuation">,</span> dS<span class="token operator">/</span>hdr<span class="token punctuation">.</span>fsample<span class="token punctuation">,</span> dT<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                
+                <span class="token comment">% Update when the 'last' event occured</span>
+                oldSamples <span class="token operator">=</span> newSamples<span class="token punctuation">;</span>
+                prev_hit <span class="token operator">=</span> this_hit<span class="token punctuation">;</span>
+            
+            <span class="token keyword keyword-end">end</span>
+
+        <span class="token keyword keyword-end">end</span> 
+    <span class="token keyword keyword-else">else</span>
+        <span class="token comment">% if there wasn't enough new data, wait about a millisecond before</span>
+        <span class="token comment">% checking again.</span>
+        <span class="token keyword keyword-pause">pause</span><span class="token punctuation">(</span><span class="token number">0.001</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-end">end</span>
+<span class="token keyword keyword-end">end</span> 
+
+<span class="token function">disp</span><span class="token punctuation">(</span><span class="token string">'END'</span><span class="token punctuation">)</span>
+
+</code></pre><h4 id="python-implementation">Python implementation </h4>
+<pre data-role="codeBlock" data-info="python" class="language-python python"><code><span class="token keyword keyword-import">import</span> FieldTrip
+<span class="token keyword keyword-import">import</span> time
+<span class="token keyword keyword-from">from</span> numpy <span class="token keyword keyword-import">import</span> argmax<span class="token punctuation">,</span> floor<span class="token punctuation">,</span> hstack<span class="token punctuation">,</span> diff
+
+
+<span class="token keyword keyword-def">def</span> <span class="token function">flank_test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    
+    HOSTNAME <span class="token operator">=</span> <span class="token string">'localhost'</span>
+    PORT <span class="token operator">=</span> <span class="token number">1972</span>
+    WINDOW <span class="token operator">=</span> <span class="token number">0.2</span> <span class="token comment"># seconds</span>
+    HOLD <span class="token operator">=</span> <span class="token number">24</span> <span class="token comment"># samples</span>
+    TOTHITS <span class="token operator">=</span> <span class="token number">300</span>
+    THRESH <span class="token operator">=</span> <span class="token number">1</span>
+    CHANNEL <span class="token operator">=</span> <span class="token string">'UADC013'</span>
+    DEADTIME <span class="token operator">=</span> <span class="token number">0.2</span>
+    
+    oldSamples <span class="token operator">=</span> <span class="token number">0</span> 
+    hits <span class="token operator">=</span> <span class="token number">0</span>
+    
+    prev_hit <span class="token operator">=</span> <span class="token number">0</span>
+    
+    ftc <span class="token operator">=</span> FieldTrip<span class="token punctuation">.</span>Client<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    
+    <span class="token keyword keyword-print">print</span><span class="token punctuation">(</span><span class="token string">'Trying to connect to buffer on %s:%i ...'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>HOSTNAME<span class="token punctuation">,</span> PORT<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    ftc<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>HOSTNAME<span class="token punctuation">,</span> PORT<span class="token punctuation">)</span>
+    
+    <span class="token keyword keyword-print">print</span><span class="token punctuation">(</span><span class="token string">'Reading header ...'</span><span class="token punctuation">)</span>
+    H <span class="token operator">=</span> ftc<span class="token punctuation">.</span>getHeader<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    
+    deadsamples <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>floor<span class="token punctuation">(</span>H<span class="token punctuation">.</span>fSample <span class="token operator">*</span> DEADTIME<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    wind <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>floor<span class="token punctuation">(</span>H<span class="token punctuation">.</span>fSample <span class="token operator">*</span> WINDOW<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    
+    cid <span class="token operator">=</span> H<span class="token punctuation">.</span>labels<span class="token punctuation">.</span>index<span class="token punctuation">(</span>CHANNEL<span class="token punctuation">)</span>
+    
+    <span class="token keyword keyword-print">print</span><span class="token punctuation">(</span><span class="token string">'Waiting for first event ...'</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-while">while</span> hits <span class="token operator">&lt;=</span> TOTHITS<span class="token punctuation">:</span> <span class="token comment"># main loop</span>
+        
+        tic <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        newSamples <span class="token operator">=</span> ftc<span class="token punctuation">.</span>poll<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+        
+        <span class="token keyword keyword-if">if</span> newSamples <span class="token operator">-</span> oldSamples <span class="token operator">&gt;=</span> HOLD<span class="token punctuation">:</span> <span class="token comment"># enough new data</span>
+                   
+            endSamples <span class="token operator">=</span> newSamples <span class="token operator">-</span> <span class="token number">1</span>    
+            begSamples <span class="token operator">=</span> endSamples <span class="token operator">-</span> wind <span class="token operator">+</span> <span class="token number">1</span>
+            
+            dat <span class="token operator">=</span> ftc<span class="token punctuation">.</span>getData<span class="token punctuation">(</span><span class="token punctuation">[</span>begSamples<span class="token punctuation">,</span> endSamples<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span>cid<span class="token punctuation">]</span>
+            ddat <span class="token operator">=</span> diff<span class="token punctuation">(</span>hstack<span class="token punctuation">(</span><span class="token punctuation">(</span>dat<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> dat<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            
+            idx <span class="token operator">=</span> argmax<span class="token punctuation">(</span>ddat <span class="token operator">&gt;=</span> THRESH<span class="token punctuation">)</span>
+            
+            <span class="token keyword keyword-if">if</span> idx <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">:</span> <span class="token comment"># found an event</span>
+            
+                this_hit <span class="token operator">=</span> begSamples <span class="token operator">+</span> idx
+            
+                <span class="token keyword keyword-if">if</span> this_hit <span class="token operator">-</span> prev_hit <span class="token operator">&gt;</span> deadsamples<span class="token punctuation">:</span> <span class="token comment"># its not a repeat hit</span>
+                
+                    dS <span class="token operator">=</span> this_hit <span class="token operator">-</span> prev_hit
+                    dT <span class="token operator">=</span> <span class="token punctuation">(</span>time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> tic<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">1000</span>
+                    hits <span class="token operator">+=</span> <span class="token number">1</span>
+                    
+                    <span class="token keyword keyword-print">print</span><span class="token punctuation">(</span><span class="token string">'Flank: %03i/%03i | dS: %04i samples | dT: %.3f s | Loop Time : %.2f ms'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>hits<span class="token punctuation">,</span> TOTHITS<span class="token punctuation">,</span> dS<span class="token punctuation">,</span> dS<span class="token operator">/</span>H<span class="token punctuation">.</span>fSample<span class="token punctuation">,</span> dT<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                    
+                    oldSamples <span class="token operator">=</span> newSamples
+                    prev_hit <span class="token operator">=</span> this_hit
+
+                    
+                    
+    ftc<span class="token punctuation">.</span>disconnect<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    
+    <span class="token keyword keyword-print">print</span><span class="token punctuation">(</span><span class="token string">'\nDisconnected'</span><span class="token punctuation">)</span>
+    
+flank_test<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
